@@ -6,12 +6,13 @@ public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationCon
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
+		//Load database and spring security configuration
 		return null;
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
+		//Load spring web configuration
 		return new Class[] { AppConfig.class };
 	}
 
