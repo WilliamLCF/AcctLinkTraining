@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.esun.example.dao.UserDao;
 import com.esun.example.model.User;
+ 
 
 @Controller
 public class UserController {
@@ -27,8 +28,10 @@ public class UserController {
 		
 		List<User> users = userDao.findAll();
 
-		System.out.println(users);
-
+		for (User user : users) {
+			System.out.println(user);
+		}
+		 
 		model.addAttribute("user", users);
 		
 		return "welcome.html";
