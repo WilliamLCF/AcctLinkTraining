@@ -1,9 +1,12 @@
-package com.esun.example.config;
+package com.esun.example.init;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import com.esun.example.config.AppConfig;
+import com.esun.example.config.SpringRootConfig;
 
 public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -26,6 +29,7 @@ public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationCon
 	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
+		System.setProperty("java.awt.headless", "false");
 		super.onStartup(servletContext);
 		servletContext.setInitParameter("spring.profiles.active", "hsql");
 }

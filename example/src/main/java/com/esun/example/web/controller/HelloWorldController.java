@@ -11,7 +11,7 @@ import com.esun.example.model.HelloWorld;
 
 @Controller
 public class HelloWorldController {
-	@GetMapping("/home")
+	@GetMapping(value= {"/","/home"})
 	public String getHome(Model model) {
 		HelloWorld helloWorld = new HelloWorld();
 		helloWorld.setMessage("Hello World Example Using Spring MVC 5!!!");

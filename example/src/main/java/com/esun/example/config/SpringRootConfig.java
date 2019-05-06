@@ -3,19 +3,23 @@ package com.esun.example.config;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
-import org.hsqldb.util.DatabaseManagerSwing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-@ComponentScan({ "com.esun" })
+@ComponentScan({ "com.esun.*" })
 @Configuration
 public class SpringRootConfig {
 
 	@Autowired
 	DataSource dataSource;
+	
+//	@Bean
+//	public JdbcTemplate getJdbcTemplate() {
+//		return new JdbcTemplate(dataSource);
+//	}
 
 	@Bean
 	public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
@@ -32,7 +36,7 @@ public class SpringRootConfig {
 		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:derby:memory:testdb", "--user", "", "--password", "" });
 
 		//h2
-		DatabaseManagerSwing.main(new String[] { "--url", "jdbc:h2:mem:testdb", "--user", "sa", "--password", "" });
+		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:h2:mem:testdb", "--user", "sa", "--password", "" });
 
 	}
 	

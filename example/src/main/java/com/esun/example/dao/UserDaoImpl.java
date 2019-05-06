@@ -14,7 +14,7 @@ import com.esun.example.model.User;
  
 @Repository
 public class UserDaoImpl implements UserDao {
-
+	
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
 	@Autowired

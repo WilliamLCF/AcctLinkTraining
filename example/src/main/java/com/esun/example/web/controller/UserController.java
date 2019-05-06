@@ -20,12 +20,10 @@ public class UserController {
 	@Autowired
 	UserDao userDao;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public String welcome(Model model) {
 
-		logger.debug("mkyong");
-
-		//User user = userDao.findByName("mkyong");
+		logger.debug("query user"); 
 		
 		List<User> users = userDao.findAll();
 
@@ -33,7 +31,7 @@ public class UserController {
 
 		model.addAttribute("user", users);
 		
-		return "welcome";
+		return "welcome.html";
 
 }
 }

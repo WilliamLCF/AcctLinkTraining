@@ -36,12 +36,12 @@ public class UserDaoTest {
     	UserDaoImpl userDao = new UserDaoImpl();
     	userDao.setNamedParameterJdbcTemplate(template);
     	
-    	User user = userDao.findByName("mkyong");
+    	User user = userDao.findByName("william");
   
     	Assert.assertNotNull(user);
     	Assert.assertEquals(1, user.getId().intValue());
-    	Assert.assertEquals("mkyong", user.getName());
-    	Assert.assertEquals("mkyong@gmail.com", user.getEmail());
+    	Assert.assertEquals("william", user.getName());
+    	Assert.assertEquals("www@xxx.com", user.getEmail());
 
     }
 
