@@ -1,5 +1,8 @@
 package com.esun.example.config;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -7,7 +10,7 @@ public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationCon
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		//Load database and spring security configuration
-		return null;
+		return new Class[] { SpringRootConfig.class };
 	}
 
 	@Override
@@ -20,5 +23,11 @@ public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationCon
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
+	
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		super.onStartup(servletContext);
+		servletContext.setInitParameter("spring.profiles.active", "hsql");
+}
 
 }
